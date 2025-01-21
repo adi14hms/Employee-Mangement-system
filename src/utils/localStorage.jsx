@@ -9,7 +9,7 @@ const employees = [
           { "active": false, "newTask": false, "completed": true, "failed": false, "taskTitle": "Update Client Database", "taskDescription": "Ensure all client records are updated with recent transactions.", "taskDate": "2025-01-15", "category": "Data Entry" },
           { "active": false, "newTask": false, "completed": false, "failed": true, "taskTitle": "Fix Server Downtime Issue", "taskDescription": "Investigate and resolve the recent server outage.", "taskDate": "2025-01-10", "category": "IT Support" }
       ],
-      "taskCount": { "active": 1, "newTask": 1, "completed": 1, "failed": 1 }
+      "taskCount": { "active": 1, "newTask": 1, "completed": 1, "failed": 0 }
   },
   {
       "id": 2,
@@ -20,7 +20,7 @@ const employees = [
           { "active": true, "newTask": true, "completed": false, "failed": false, "taskTitle": "Design Website Mockups", "taskDescription": "Create new design concepts for the upcoming product launch.", "taskDate": "2025-01-22", "category": "Design" },
           { "active": false, "newTask": false, "completed": true, "failed": false, "taskTitle": "Review UI Feedback", "taskDescription": "Analyze and incorporate client feedback into the UI improvements.", "taskDate": "2025-01-12", "category": "Design" }
       ],
-      "taskCount": { "active": 1, "newTask": 1, "completed": 1, "failed": 0 }
+      "taskCount": { "active": 1, "newTask": 1, "completed": 0, "failed": 0 }
   },
   {
       "id": 3,

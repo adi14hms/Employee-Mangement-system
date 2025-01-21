@@ -1,26 +1,26 @@
-import React, { createContext, useEffect, useInsertionEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
-export const AuthContext = createContext()
-const AuthProvider = ({children}) => {
-    // localStorage.clear()
-    const [userData, setUserData] = useState(null)
-    useEffect(()=>{
-        setLocalStorage()
-        const {employees, admin}=getLocalStorage()
-        setUserData({employees,admin})
-    }, [])
+export const AuthContext = createContext();
 
+const AuthProvider = ({ children }) => {
+    const [userData, setUserData] = useState({ employees: [] });  // ✅ Ensure employees always exists
 
+    useEffect(() => {
+        setLocalStorage();
+        const localData = getLocalStorage();
+        if (localData && Array.isArray(localData.employees)) {
+            setUserData({ employees: localData.employees });
+        } else {
+            setUserData({ employees: [] });  // ✅ Fallback to empty array
+        }
+    }, []);
 
+    return (
+        <AuthContext.Provider value={[userData, setUserData]}>
+            {children}
+        </AuthContext.Provider>
+    );
+};
 
-    return ( 
-        <div>
-           <AuthContext.Provider value={userData}>
-             {children}
-           </AuthContext.Provider>
-        </div>
-     );
-}
- 
 export default AuthProvider;
